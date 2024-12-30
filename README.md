@@ -2,6 +2,11 @@
 <img width="1000" alt="Screenshot 2024-12-30 at 4 04 26 PM" src="https://github.com/user-attachments/assets/ab5895b3-a10c-468e-9985-6b290ffb0e8d" />
 
 # Nintendo Teleoperation of Bimanual ALOHA
+
+[![X (formerly Twitter) Follow](https://img.shields.io/badge/X-%23000000.svg?style=for-the-badge&logo=X&logoColor=white)](https://x.com/Almondgodd/status/1856891187665256939) 
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)
+![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg?style=for-the-badge&logo=python&logoColor=white)
+
 This repository contains:
 1. Nintendo Joycon Teleoperation of the Bimanual [ALOHA](https://aloha-2.github.io/) system in Mujoco simulator with 50 Bigym bimanual benchmark tasks
 2. Training Infrastructure for an Action-Chunking Transformer using teleoperation data
