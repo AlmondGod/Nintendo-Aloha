@@ -1,8 +1,38 @@
-# Aloha Bigym Modifications:
 
-This Fork of Bigym contains the bigym tasks modified to work with the [ALOHA](https://aloha-2.github.io/) bimanual system. ALOHA assets found [here](https://github.com/google-deepmind/mujoco_menagerie/tree/main/aloha).
+<img width="1000" alt="Screenshot 2024-12-30 at 4 04 26 PM" src="https://github.com/user-attachments/assets/ab5895b3-a10c-468e-9985-6b290ffb0e8d" />
 
-## Modified Tasks:
+# Nintendo Teleoperation of Bimanual ALOHA
+This repository contains:
+1. Nintendo Joycon Teleoperation of the Bimanual [ALOHA](https://aloha-2.github.io/) system in Mujoco simulator with 50 Bigym bimanual benchmark tasks
+2. Training Infrastructure for an Action-Chunking Transformer using teleoperation data
+   
+## Repository Contents:
+[Control](./control) contains the Nintendo switch teleoperation script [teleop_aloha.py](./control/teleop_aloha.py), before running simply connect Joycons to your machine via Bluetooth and run the below Install instructions
+
+[Bigym](./bigym) contains the modified Bigym benchmark environments including the bimanual ALOHA setup
+
+[Models](./models) is a submodule of the forked AC repository. It contains the training script [imitate_episodes.py](./models/imitate_episodes.py) and the evaluation/inference script [model_eval.py](./control/model_eval.py). For training and inference instructions see the [repository README](https://github.com/AlmondGod/act-bigym-aloha/tree/742c753c0d4a5d87076c8f69e5628c79a8cc5488).
+
+## Install
+
+```bash
+git clone https://github.com/AlmondGod/aloha-bigym/tree/master
+cd aloha-bigym
+python3.12 -m venv .venv
+source .venv/bin/activate
+pip install .
+git submodule update --init --recursive
+```
+
+- If you encounter this error: `ImportError: cannot import name 'MujocoElement' from 'mojo.elements'`, add this line: 
+`from mojo.elements.element import MujocoElement` 
+to `.venv/lib/python3.12/site-packages/gymnasium/envs/mujoco/mujoco_rendering.py`
+
+To run the simulated aloha bigym tasks navigate to [examples](examples) and run any of the `aloha_<task>.py` files.
+
+Assets from [Mujoco Menagerie](https://github.com/google-deepmind/mujoco_menagerie/tree/main/aloha).
+
+## Available Tasks:
 
 [aloha_box.py](examples/aloha_box.py) contains `StoreBox` and `PickBox`
 <div>
@@ -61,23 +91,6 @@ This Fork of Bigym contains the bigym tasks modified to work with the [ALOHA](ht
 </div>
 
 No longer relevant: `PickBox`, `GroceriesStoreLower`, `CupboardsOpenAll`, `CupboardsCloseAll`
-
-# Install
-
-```bash
-git clone https://github.com/AlmondGod/aloha-bigym/tree/master
-cd aloha-bigym
-python3.12 -m venv .venv
-source .venv/bin/activate
-pip install .
-git submodule update --init --recursive
-```
-
-- If you encounter this error: `ImportError: cannot import name 'MujocoElement' from 'mojo.elements'`, add this line: 
-`from mojo.elements.element import MujocoElement` 
-to `.venv/lib/python3.12/site-packages/gymnasium/envs/mujoco/mujoco_rendering.py`
-
-To run the simulated aloha bigym tasks navigate to [examples](examples) and run any of the `aloha_<task>.py` files.
 
 # Original Bigym README:
 
